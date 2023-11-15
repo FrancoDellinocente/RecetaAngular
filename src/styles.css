@@ -1,1 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --negro: #000;
+    --blanco:#FFF;
+  
+    --carmine-50: #ffa8b8;
+    --carmine-100: #ff94a6;
+    --carmine-200: #ff758f;
+    --carmine-300: #ff4769;
+    --carmine-400: #ff0533;
+    --carmine-500: #d10026;
+    --carmine-600: #b80022;
+    --carmine-700: #9e001d;
+    --carmine-800: #700015;
+    --carmine-900: #550211;
+    --carmine-950: #0f0003;
+    
+    --bamboo-50: #fef8ee;
+    --bamboo-100: #feefd6;
+    --bamboo-200: #fbdaad;
+    --bamboo-300: #f8c079;
+    --bamboo-400: #f49b43;
+    --bamboo-500: #f17d1e;
+    --bamboo-600: #e36414;
+    --bamboo-700: #bc4c12;
+    --bamboo-800: #953c17;
+    --bamboo-900: #783316;
+    --bamboo-950: #411709;
+    
+    --pompadour-50: #e8a5a1;
+    --pompadour-100: #ec939d;
+    --pompadour-200: #ea7b9a;
+    --pompadour-300: #e85494;
+    --pompadour-400: #de218c;
+    --pompadour-500: #ad1f85;
+    --pompadour-600: #801e70;
+    --pompadour-700: #5e135b;
+    --pompadour-800: #390e3f;
+    --pompadour-900: #200a29;
+    --pompadour-950: #050109;
+
+
+            
+
+
+    /* Tipografía */
+    --tipo-principal:'Montserrat', sans-serif;
+    --tipo-secundario:'Assistant', sans-serif;
+  
+  }
+  
+  /* Las adaptamos al modo oscuro */
+  @media (prefers-color-scheme: dark) {
+  }
+  /* Opcional */
+  /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+  /* Opcional */
+  /* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      -webkit-animation: none !important;
+              animation: none !important;
+      -webkit-transition: none !important;
+      transition: none !important;
+    }
+  }
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* opcional */
+    -o-object-fit: cover;
+       object-fit: cover;
+    /* opcional */
+    -o-object-position: center center;
+       object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+  }
+  
+  /* ... excepto los que se encuentran en párrafos */
+  p a {
+    display: inline;
+  }
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+  /* Configuramos anclas suaves */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Desactivamos estilos por defecto de las principales etiquetas de texto */
+  h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+  }
+  
+  /* Configuramos el texto que seleccionamos */
+  ::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+  ::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    /* opcional */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+  
+  /* Reseteamos las tablas */
+  table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* Evitamos problemas con los SVG */
+  svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+  }
+  
+  /* (Probándolo, no usar en producción) En el caso de añadir una  */
+  /* p svg{
+    display: inline;
+    width: initial;
+  } */
+  /* Configuramos la tipografía para toda la web */
+  body {
+    min-height: 100vh;
+    font-size: 100%;
+    font-family: var(--tipo-principal);
+    background-color: var(--blanco);
+    color: var(--negro);
+    /* opcional */
+    line-height: 1.4em;
+    /* opcional */
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    /* opcional */
+    font-smooth: always;
+    /* opcional */
+    -webkit-font-smoothing: antialiased;
+    /* opcional */
+    -moz-osx-font-smoothing: grayscale;
+  }
