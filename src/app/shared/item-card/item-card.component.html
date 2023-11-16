@@ -1,2 +1,14 @@
-<p>item-card works!</p>
-<p>{{iteme}}</p>
+<article class="itemcard">
+    <img src={{iteme.imgReceta}} alt="Imagen Receta" class="itemcard__img">
+    <h1 class="itemcard__title">{{iteme.nombre}}</h1>
+    <div class="itemcard__author">
+        <h2 class="author__nombre">{{iteme.nombre}}</h2>
+        <div class="author__img">
+            <img src={{iteme.imgReceta}} alt="Imagen Receta" class="author__imga">
+        </div>
+    </div>
+    <a [href]="'/receta/' + iteme._id" class="itemcard__button">
+        Detalle
+    </a>
+</article>
+

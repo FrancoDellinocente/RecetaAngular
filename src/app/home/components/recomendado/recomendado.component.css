@@ -6,11 +6,12 @@
     background-attachment: fixed;
     background-position: center;
     overflow: hidden;
+    padding-top: 2em;
 
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
     gap: 2em;
 }
 
@@ -22,6 +23,8 @@
 }
 
 .recomendacion__list{
+    padding-top: 2em;
+    
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -30,7 +33,9 @@
 }
 
 .recomendacion__item{
-    background-color: blue;
     flex: 1;
-
+    max-width: 20em;
+    min-width: 20em;
+    max-height: 20em;
+    min-height: 20em;
 }

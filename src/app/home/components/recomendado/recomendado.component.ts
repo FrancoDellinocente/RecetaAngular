@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { RecetaService } from './../../../services/receta.service';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemCardComponent } from '../../../shared/item-card/item-card.component';
+import { Receta } from '../../../interfaces/receta';
 
 @Component({
   selector: 'app-recomendado',
@@ -9,6 +11,15 @@ import { ItemCardComponent } from '../../../shared/item-card/item-card.component
   templateUrl: './recomendado.component.html',
   styleUrl: './recomendado.component.css',
 })
-export class RecomendadoComponent {
-  items: string[] = ['d', 's', 'a'];
+export class RecomendadoComponent implements OnInit {
+  constructor(private recetaService: RecetaService) {}
+
+  items: Receta[] = [];
+
+  ngOnInit(): void {
+    this.recetaService.GetAllRecetas().subscribe((recetas) => {
+      console.log(recetas);
+      this.items = recetas;
+    });
+  }
 }

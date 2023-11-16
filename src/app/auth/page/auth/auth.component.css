@@ -1,0 +1,40 @@
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth__box {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .auth__label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .auth__input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: border-color 0.3s; /* Agregamos una transición para suavizar el cambio de color */
+  }
+  
+  .auth__input:focus {
+    border-color: lightblue; /* Color celeste al estar activo */
+  }
+  
+  .auth__button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
