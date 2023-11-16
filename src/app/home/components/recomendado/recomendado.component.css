@@ -1,0 +1,36 @@
+.recomendacion{
+    width: 100%;
+    min-height: 50em;
+    max-height: max-content;
+    background-image: url(https://www.toptal.com/designers/subtlepatterns/uploads/oriental.png);
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+.recomendacion__title{
+    font-family: var(--tipo-principal);
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.recomendacion__list{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+}
+
+.recomendacion__item{
+    background-color: blue;
+    flex: 1;
+
+}

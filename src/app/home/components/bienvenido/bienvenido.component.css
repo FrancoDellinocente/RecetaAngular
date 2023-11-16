@@ -1,0 +1,48 @@
+.bienvenido{
+    width: 100%;
+    min-height: 50em;
+    max-height: max-content;
+    background-image: url(https://cdn.pixabay.com/photo/2020/10/01/22/39/gourmet-5619887_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bienvenido__box{
+    display: inline-block;
+    max-width: max-content;
+    margin-top: 15em;
+    margin-bottom: 1em;
+    padding: 4em;
+    background-color: var(--bamboo-200);
+    color: var(--bamboo-600);
+    border: .1em solid var(--bamboo-600);
+    border-radius: 1em;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    gap: 1em;
+}
+
+.bienvenido__title{
+    font-family: var(--tipo-principal);
+    font-size: 4em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.bienvenido__subtitle{
+    font-family: var(--tipo-principal);
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1;
+}

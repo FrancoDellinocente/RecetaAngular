@@ -1,0 +1,8 @@
+<section class="recomendacion">
+    <h1 class="recomendacion__title">Recomendaciones</h1>
+    <div class="recomendacion__list"> 
+        @for (item of items; track $index) {
+            <app-item-card iteme={{item}} class="recomendacion__item"></app-item-card>
+        }
+    </div>
+</section>
