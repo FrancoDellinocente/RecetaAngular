@@ -1,9 +1,14 @@
 <nav class="navbar">
     <!-- <img src="tu_logo.png" alt="Logo de la empresa" class="logo"> -->
-    <a routerLink="/" class="navbar__logo">Logo</a>
+    <a href="/" class="navbar__logo">Logo</a>
     <div class="navbar__wrappButtons">
-        <a routerLink="/" class="navbar__button">Inicio</a>
-        <a routerLink="/servicios" class="navbar__button">Recetas</a>
-        <a routerLink="/contacto" class="navbar__button">Crear Receta</a>
+        <a href="/servicios" class="navbar__button">Recetas</a>
+        @if(authService.isLogged()){
+            <a  href="/createReceta" class="navbar__button">Crear Receta</a>
+            <a  (click)="onClickLogout()" (keydown.enter)="onClickLogout()" class="navbar__button" tabindex="0" role="button">Logout</a>
+        } @else {
+            <a   href="/auth" class="navbar__button">Login</a>
+        }
+        
     </div>
 </nav>

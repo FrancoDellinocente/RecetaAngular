@@ -1,0 +1,39 @@
+<section class="aa">
+    <div>
+        <form [formGroup]="recetaForm">
+            <!-- Campos de la receta -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" />
+            
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" formControlName="descripcion"></textarea>
+            
+            <label for="imgReceta">Imagen de la Receta:</label>
+            <input type="text" id="imgReceta" formControlName="imgReceta" />
+            
+        </form>
+    </div>
+    <div>
+        <div>
+            <form action="">
+                <label for="ingrediente">Ingrediente:</label>
+                <input type="text" id="ingrediente" formControlName="ingrediente" />
+                
+                <label for="cantidad">Cantidad:</label>
+                <input type="text" id="cantidad" formControlName="cantidad" />
+                
+                <label for="unidad">Unidad:</label>
+                <input type="text" id="unidad" formControlName="unidad" />
+            </form>
+            <button type="button" (click)="agregarIngrediente()" [disabled]="!recetaForm.valid">Agregar Ingrediente</button>
+        </div>
+        <ul>
+            <li *ngFor="let ingrediente of ingredientesSeleccionados; let i = index">
+                {{ ingrediente.cantidad }} {{ ingrediente.unidad }} <button (click)="eliminarIngrediente(i)">Eliminar</button>
+            </li>
+          </ul>
+    </div>  
+
+    <button type="button" (click)="guardarReceta()" [disabled]="!recetaForm.valid || ingredientesSeleccionados.length === 0">Guardar Receta</button>
+      
+</section>

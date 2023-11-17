@@ -1,0 +1,16 @@
+.aa{
+    background-color: aqua;
+    height:50em ;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion {
+    margin-top: 20px;
+  }
+  
+  .accordion-item {
+    margin-bottom: 10px;
+  }

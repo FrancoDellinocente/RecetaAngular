@@ -1,4 +1,4 @@
-interface IngRec {
+export interface IngRec {
   _id: string;
   cantidad: number;
   unidad: string;
@@ -28,4 +28,12 @@ export class RecetaConstructor implements Receta {
       },
     ],
   ) {}
+}
+
+export interface RecetaCrear {
+  _id: string;
+  nombre: string;
+  descripcion: string;
+  imgReceta: string;
+  ingrediente: IngRec[];
 }

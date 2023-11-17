@@ -29,4 +29,8 @@ export class AuthService {
         }),
       );
   }
+
+  isLogged(): boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
 }

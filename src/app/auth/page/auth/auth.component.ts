@@ -16,17 +16,16 @@ export class AuthComponent {
   mail: string = '';
   password: string = '';
 
-  iniciarSesion(event: Event) {
+  async iniciarSesion(event: Event) {
     event.preventDefault();
-    this.authService.Login(this.mail, this.password).subscribe(
-      (respuesta) => {
-        // Hacer algo con la respuesta exitosa
-        console.log(respuesta);
-      },
-      (error) => {
-        // Manejar el error
-        console.error(error);
-      },
-    );
+    try {
+      const respuesta = await this.authService
+        .Login(this.mail, this.password)
+        .toPromise();
+      console.log(respuesta);
+      localStorage.setItem('token', respuesta!.token);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
