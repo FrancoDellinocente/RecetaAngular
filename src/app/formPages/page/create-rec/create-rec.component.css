@@ -1,16 +1,99 @@
-.aa{
-    background-color: aqua;
-    height:50em ;
+.formCreRec{
+  position: relative;
+  top: 5em;
+  background-image: url(https://www.toptal.com/designers/subtlepatterns/uploads/subtle_white_mini_waves.png);
+  background-attachment: fixed;
+  min-height:100dvh ;
 
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0 20%;
+
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.accordion {
-    margin-top: 20px;
-  }
-  
-  .accordion-item {
-    margin-bottom: 10px;
-  }
+.formCreRec__rece{
+  width: 100%;
+  padding: 2em 20%;
+  border: .1em solid var(--bamboo-800);
+  border-radius: 1em;
+  background-color: var(--bamboo-100);
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.formCreRec__label{
+  margin-top: .7em ;
+  font-family: var(--tipo-secundario);
+  font-weight: 600;
+}
+
+.formCreRec__input{
+  border: .1em solid var(--bamboo-800);
+  border-radius: .5em;
+}
+
+
+.formIng__form{
+  margin-top: 2em;
+  padding: 0 1em 1em 1em;
+  border: .1em solid var(--bamboo-800);
+  border-radius: .5em;
+
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.formIng__button{
+  display:inline-block;
+  margin-top: 1em;
+  padding: .5em;
+  background-color: var(--bamboo-800);
+  border: .1em solid var(--bamboo-800);
+  border-radius: .5em;
+  color: var(--bamboo-100);
+}
+
+.formIng__button:hover{
+  background-color: var(--bamboo-700);
+}
+
+.dataSltd__title{
+  margin-top: 2em;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dataSltd__dataCtnr{
+  margin-top: .5em;
+  padding: .5em;
+  border: .1em solid var(--bamboo-800);
+  border-radius: .5em;
+
+  display: flex;
+  flex-flow: column;
+  gap: .5em;
+}
+
+.dataSltd__dataRw{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5em;
+}
+
+.dataSltd__dataBttn{
+  padding: .4em;
+  background-color: var(--bamboo-800);
+  border: .1em solid var(--bamboo-800);
+  border-radius: .5em;
+  color: var(--bamboo-100);
+}
+
+.dataSltd__dataBttn:hover{
+  background-color: var(--bamboo-600);
+}

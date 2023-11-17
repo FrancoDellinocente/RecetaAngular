@@ -1,38 +1,39 @@
-<section class="aa">
-    <div>
-        <form [formGroup]="recetaForm">
+<section class="formCreRec">
+        <form [formGroup]="recetaForm" class="formCreRec__rece">
             <!-- Campos de la receta -->
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" formControlName="nombre" />
+            <label for="nombre" class="formCreRec__label">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" class="formCreRec__input"/>
             
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" formControlName="descripcion"></textarea>
+            <label for="descripcion" class="formCreRec__label">Descripción:</label>
+            <textarea id="descripcion" formControlName="descripcion" class="formCreRec__input"></textarea>
             
-            <label for="imgReceta">Imagen de la Receta:</label>
-            <input type="text" id="imgReceta" formControlName="imgReceta" />
-            
-        </form>
-    </div>
-    <div>
-        <div>
-            <form action="">
-                <label for="ingrediente">Ingrediente:</label>
-                <input type="text" id="ingrediente" formControlName="ingrediente" />
-                
-                <label for="cantidad">Cantidad:</label>
-                <input type="text" id="cantidad" formControlName="cantidad" />
-                
-                <label for="unidad">Unidad:</label>
-                <input type="text" id="unidad" formControlName="unidad" />
+            <label for="imgReceta" class="formCreRec__label">Imagen de la Receta:</label>
+            <input type="text" id="imgReceta" formControlName="imgReceta"class="formCreRec__input" />
+
+            <form [formGroup]="ingreForm" class="formIng__form">
+                <label for="ingrediente" class="formCreRec__label" >Ingrediente:</label>
+                <select formControlName="_id" name="ingrediente" id="ingrediente" class="formCreRec__input">
+                    <option *ngFor="let ingrediente of listIng" [value]="ingrediente._id" >
+                        {{ ingrediente.nombre }}
+                    </option>
+                </select>
+                    
+                <label for="cantidad" class="formCreRec__label">Cantidad:</label>
+                <input type="text" id="cantidad" formControlName="cantidad" class="formCreRec__input"/>
+                    
+                <label for="unidad" class="formCreRec__label">Unidad:</label>
+                <input type="text" id="unidad" formControlName="unidad" class="formCreRec__input"/>
             </form>
-            <button type="button" (click)="agregarIngrediente()" [disabled]="!recetaForm.valid">Agregar Ingrediente</button>
-        </div>
-        <ul>
-            <li *ngFor="let ingrediente of ingredientesSeleccionados; let i = index">
-                {{ ingrediente.cantidad }} {{ ingrediente.unidad }} <button (click)="eliminarIngrediente(i)">Eliminar</button>
-            </li>
-          </ul>
-    </div>  
+            <button type="button" (click)="agregarIngrediente()"  class="formIng__button">Agregar Ingrediente</button>   
+            
+            <h2 class="dataSltd__title">Ingredientes Seleccionados:</h2>
+            <ul class="dataSltd__dataCtnr">
+                <li *ngFor="let ingrediente of ingredientesSeleccionados; let i = index" class="dataSltd__dataRw">
+                    <p class="dataSltd__info"> {{ ingrediente.ingrediente }} || {{ ingrediente.cantidad }} || {{ ingrediente.unidad }} </p> 
+                    <button (click)="eliminarIngrediente(i)" class="dataSltd__dataBttn">Eliminar</button>
+                </li>
+            </ul>
+        </form>
 
     <button type="button" (click)="guardarReceta()" [disabled]="!recetaForm.valid || ingredientesSeleccionados.length === 0">Guardar Receta</button>
       

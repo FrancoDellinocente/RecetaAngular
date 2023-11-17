@@ -1,5 +1,5 @@
 export interface IngRec {
-  _id: string;
+  ingrediente: string;
   cantidad: number;
   unidad: string;
 }
@@ -10,7 +10,7 @@ export interface Receta {
   descripcion: string;
   usuarioid: string;
   imgReceta: string;
-  ingrediente: IngRec[];
+  ingredientes: IngRec[];
 }
 
 export class RecetaConstructor implements Receta {
@@ -20,9 +20,9 @@ export class RecetaConstructor implements Receta {
     public descripcion: string = '',
     public usuarioid: string = '',
     public imgReceta: string = '',
-    public ingrediente: IngRec[] = [
+    public ingredientes: IngRec[] = [
       {
-        _id: '',
+        ingrediente: '',
         cantidad: 0,
         unidad: '',
       },
@@ -31,9 +31,8 @@ export class RecetaConstructor implements Receta {
 }
 
 export interface RecetaCrear {
-  _id: string;
   nombre: string;
   descripcion: string;
   imgReceta: string;
-  ingrediente: IngRec[];
+  ingredientes: IngRec[];
 }

@@ -1,10 +1,16 @@
 import { IngredienteService } from './../../../services/ingrediete/ingrediente.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+  FormBuilder,
+  FormGroup,
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ingrediente } from '../../../interfaces/ingrediente';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IngRec, RecetaCrear } from '../../../interfaces/receta';
+import { RecetaService } from '../../../services/receta.service';
 
 @Component({
   selector: 'app-create-rec',
@@ -16,16 +22,23 @@ import { IngRec, RecetaCrear } from '../../../interfaces/receta';
 export class CreateRecComponent implements OnInit {
   listIng: Ingrediente[] = [];
   recetaForm: FormGroup;
-  ingredientesSeleccionados: IngRec[] = []; // Agrega la declaración de ingredientesSeleccionados
+  ingreForm: FormGroup;
+  ingredientesSeleccionados: IngRec[] = [];
 
   constructor(
     private IngredienteService: IngredienteService,
+    private recetaService: RecetaService,
     private fb: FormBuilder,
   ) {
     this.recetaForm = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
       imgReceta: ['', Validators.required],
+      ingrediente: [[], Validators.minLength(1)],
+    });
+
+    this.ingreForm = this.fb.group({
+      _id: ['', Validators.required],
       cantidad: ['', Validators.required],
       unidad: ['', Validators.required],
     });
@@ -37,26 +50,18 @@ export class CreateRecComponent implements OnInit {
         this.listIng = ingre;
       },
     );
-
-    this.recetaForm = this.fb.group({
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      imgReceta: ['', Validators.required],
-      cantidad: ['', Validators.required],
-      unidad: ['', Validators.required],
-    });
   }
 
   agregarIngrediente() {
-    if (this.recetaForm && this.recetaForm.valid) {
+    if (this.ingreForm && this.ingreForm.valid) {
       const nuevoIngrediente: IngRec = {
-        _id: this.recetaForm.get('unidad')!.value,
-        cantidad: this.recetaForm.get('cantidad')!.value,
-        unidad: this.recetaForm.get('unidad')!.value,
+        ingrediente: this.ingreForm.get('_id')!.value,
+        cantidad: this.ingreForm.get('cantidad')!.value,
+        unidad: this.ingreForm.get('unidad')!.value,
       };
       this.ingredientesSeleccionados.push(nuevoIngrediente);
-      this.recetaForm.get('cantidad')!.reset();
-      this.recetaForm.get('unidad')!.reset();
+      this.ingreForm.get('cantidad')!.reset();
+      this.ingreForm.get('unidad')!.reset();
     }
   }
 
@@ -67,13 +72,19 @@ export class CreateRecComponent implements OnInit {
   guardarReceta() {
     if (this.recetaForm.valid && this.ingredientesSeleccionados.length > 0) {
       const nuevaReceta: RecetaCrear = {
-        _id: '', // Asigna un valor adecuado para _id
         nombre: this.recetaForm.get('nombre')!.value,
         descripcion: this.recetaForm.get('descripcion')!.value,
         imgReceta: this.recetaForm.get('imgReceta')!.value,
-        ingrediente: this.ingredientesSeleccionados,
+        ingredientes: this.ingredientesSeleccionados,
       };
-      // Aquí puedes guardar la receta o realizar la lógica correspondiente
+      this.recetaService.Create(nuevaReceta).subscribe(
+        (respuesta) => {
+          console.log('Receta creada exitosamente:', respuesta);
+        },
+        (error) => {
+          console.error('Error al crear la receta:', error);
+        },
+      );
       console.log(nuevaReceta);
     }
   }

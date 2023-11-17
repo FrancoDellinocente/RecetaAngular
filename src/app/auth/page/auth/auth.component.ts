@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +14,7 @@ import { AuthService } from '../../service/auth.service';
 export class AuthComponent {
   constructor(private authService: AuthService) {}
 
+  router = inject(Router);
   mail: string = '';
   password: string = '';
 
@@ -24,6 +26,7 @@ export class AuthComponent {
         .toPromise();
       console.log(respuesta);
       localStorage.setItem('token', respuesta!.token);
+      this.router.navigate(['/']);
     } catch (error) {
       console.error(error);
     }
