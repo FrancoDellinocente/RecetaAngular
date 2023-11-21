@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Receta, RecetaConstructor } from '../../interfaces/receta';
+import { ItemCard, ItemCardContructor } from '../../interfaces/item-card';
 
 @Component({
   selector: 'app-item-card',
@@ -10,5 +10,5 @@ import { Receta, RecetaConstructor } from '../../interfaces/receta';
   styleUrl: './item-card.component.css',
 })
 export class ItemCardComponent {
-  @Input() iteme: Receta = new RecetaConstructor();
+  @Input() iteme: ItemCard = new ItemCardContructor();
 }

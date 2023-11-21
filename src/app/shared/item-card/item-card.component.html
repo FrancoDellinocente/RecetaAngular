@@ -1,13 +1,13 @@
 <article class="itemcard">
     <img src={{iteme.imgReceta}} alt="Imagen Receta" class="itemcard__img">
-    <h1 class="itemcard__title">{{iteme.nombre}}</h1>
+    <h1 class="itemcard__title">{{iteme.recetaNombre}}</h1>
     <div class="itemcard__author">
-        <h2 class="author__nombre">{{iteme.nombre}}</h2>
+        <h2 class="author__nombre">{{iteme.usuarioNombre}}</h2>
         <div class="author__img">
-            <img src={{iteme.imgReceta}} alt="Imagen Receta" class="author__imga">
+            <img src={{iteme.usuarioImg}} alt="Imagen Receta" class="author__imga">
         </div>
     </div>
-    <a [href]="'/receta/' + iteme._id" class="itemcard__button">
+    <a [href]="'/receta/' + iteme.recetaId" class="itemcard__button">
         Detalle
     </a>
 </article>

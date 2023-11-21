@@ -2,7 +2,7 @@ import { RecetaService } from './../../../services/receta.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemCardComponent } from '../../../shared/item-card/item-card.component';
-import { Receta } from '../../../interfaces/receta';
+import { ItemCard } from '../../../interfaces/item-card';
 
 @Component({
   selector: 'app-recomendado',
@@ -14,7 +14,7 @@ import { Receta } from '../../../interfaces/receta';
 export class RecomendadoComponent implements OnInit {
   constructor(private recetaService: RecetaService) {}
 
-  items: Receta[] = [];
+  items: ItemCard[] = [];
 
   ngOnInit(): void {
     this.recetaService.GetAllRecetas().subscribe((recetas) => {

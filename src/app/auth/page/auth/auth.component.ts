@@ -24,7 +24,6 @@ export class AuthComponent {
       const respuesta = await this.authService
         .Login(this.mail, this.password)
         .toPromise();
-      console.log(respuesta);
       localStorage.setItem('token', respuesta!.token);
       this.router.navigate(['/']);
     } catch (error) {
